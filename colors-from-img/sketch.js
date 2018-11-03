@@ -1,10 +1,14 @@
 let img;
 let pixels = [];
 let preSearch = [];
+
+// config block start
 let quality = 50; // точность вычисления, минимум 1, максимум - img.height * img.width :) но самый оптимальное по скорости и точности - 50-60 для средних по размеру фото
-let countResults = 20;
-let closerToTheDesired; // closer to the desired
+let countResults = 15;
 let imgPath = 'imgs/4.jpg';
+let closerToTheDesired = 'light'; // closer to the desired ['light' or 'dark']
+// config block end
+
 let time = {start: 0, end: 0};
 
 function preload(){
@@ -15,9 +19,7 @@ function preload(){
 }
 
 function setup(){
-  closerToTheDesired = createVector(0, 0, 0);
-  // closerToTheDesired = createVector(255, 255, 255);
-
+  closerToTheDesired = closerToTheDesired == 'dark' ? createVector(0, 0, 0) : createVector(255, 255, 255);
 
   noCanvas();
   image(img, 0, 0);
@@ -39,7 +41,7 @@ function setup(){
   let result = imgSpectrum(preSearch, countResults, closerToTheDesired);
 
   // display results
-  console.log(result);
+  // console.log(result);
   for(let i=0; i<result.length; i++){
     let hxCol = '#' + hex(preSearch[i].x, 2) + hex(preSearch[i].y, 2) + hex(preSearch[i].z, 2); // convert rgb to hex
     let div = document.createElement('div');
