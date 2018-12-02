@@ -4,9 +4,9 @@ let preSearch = [];
 
 // config block start
 let quality = 50; // точность вычисления, минимум 1, максимум - img.height * img.width :) но самый оптимальное по скорости и точности - 50-60 для средних по размеру фото
-let countResults = 15;
-let imgPath = 'imgs/4.jpg';
-let closerToTheDesired = 'light'; // closer to the desired ['light' or 'dark']
+let countResults = 9;
+let imgPath = 'imgs/6.jpg';
+let closerToTheDesired = 'dark'; // closer to the desired ['light' or 'dark']
 // config block end
 
 let time = {start: 0, end: 0};
